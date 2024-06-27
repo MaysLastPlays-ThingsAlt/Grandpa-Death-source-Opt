@@ -158,6 +158,7 @@ class FreeplayState extends MusicBeatState
 	#if mobile
 	addVirtualPad(UP_DOWN, A_B);
 	addVirtualPadCamera(false);
+	#end
 	}
 
 	public function addSong(songName:String, weekNum:Int, songCharacter:String, songColor:FlxColor)
