@@ -4,12 +4,9 @@ import lime.utils.Assets;
 import meta.state.PlayState;
 import flixel.util.FlxColor;
 import openfl.display.BitmapData;
+import openfl.utils.Assets;
 
 using StringTools;
-
-#if sys
-import sys.FileSystem;
-#end
 
 class CoolUtil
 {
@@ -65,16 +62,14 @@ class CoolUtil
 	{
 		var libraryArray:Array<String> = [];
 
-		#if sys
-		var unfilteredLibrary = FileSystem.readDirectory('$subDir/$library');
+		var unfilteredLibrary = Assets.list().filter(text -> text.contins('$subDir/$library'));
 
 		for (folder in unfilteredLibrary)
 		{
-			if (!folder.contains('.'))
+			if (!folder.startsWith('.'))
 				libraryArray.push(folder);
 		}
 		trace(libraryArray);
-		#end
 
 		return libraryArray;
 	}
