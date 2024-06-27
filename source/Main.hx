@@ -124,7 +124,11 @@ class Main extends Sprite
 
 		// here we set up the base game
 		var gameCreate:FlxGame;
+		#if desktop
 		gameCreate = new FlxGame(gameWidth, gameHeight, mainClassState, #if (flixel < "5.0.0") zoom, #end framerate, framerate, skipSplash);
+			        #else
+  	   gameCreate = new FlxGame(1280, 720, Init, 60, 60, false, true));
+  	        #end
 		addChild(gameCreate); // and create it afterwards
 
 		// default game FPS settings, I'll probably comment over them later.
