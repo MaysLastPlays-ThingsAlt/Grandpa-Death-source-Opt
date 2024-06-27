@@ -710,6 +710,17 @@ class PlayState extends MusicBeatState
 	{
 		stageBuild.stageUpdateConstant(elapsed, boyfriend, gf, dadOpponent);
 
+		#if mobile
+		var justTouched:Bool = FlxG.keys.justPressed.ENTER;
+		for (touch in FlxG.touches.list)
+		{
+			if (touch.justPressed)
+			{
+				justTouched = true;
+			}
+		}
+		#end
+
 		super.update(elapsed);
 
 		if (health > 2)
@@ -727,7 +738,7 @@ class PlayState extends MusicBeatState
 					aspdojojdfsapjfds=true;
 					trace("121212231");
 				}
-				if(FlxG.keys.justPressed.SHIFT&&DialogueBox.voiceline!=null&&SONG.song.toLowerCase()!="reaper-rhythm"&&SONG.song.toLowerCase()!="deadbattle"){
+				if(#if desktop FlxG.keys.justPressed.SHIFT #else justTouched #end && DialogueBox.voiceline!=null&&SONG.song.toLowerCase()!="reaper-rhythm"&&SONG.song.toLowerCase()!="deadbattle"){
 					DialogueBox.voiceline.stop();
 					dialogueBox.closeDialog();
 				  }
@@ -738,7 +749,7 @@ class PlayState extends MusicBeatState
 
 			var curpage1=dialogueBox.curPage;
 			dialogueBox.portrait.visible=(SONG.song.toLowerCase()=='reaper-rhythm'||SONG.song.toLowerCase()=='behold the apocalypse'||SONG.song.toLowerCase()=='deadbattle'||dialogueBox.curCharacter=='bf')?false:(dialogueBox.curCharacter=="titleGD");
-			if (controls.ACCEPT && dialogueBox.textStarted && !midsongdia)
+			if (#if desktop controls.ACCEPT #else justTouched #end && dialogueBox.textStarted && !midsongdia)
 			{
 				dialogueBox.curPage += 1;
 
