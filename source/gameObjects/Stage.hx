@@ -22,7 +22,6 @@ import meta.data.dependency.FNFSprite;
 import meta.state.PlayState;
 import meta.state.PlayState;
 import openfl.display.GraphicsShader;
-import sys.io.File;
 
 using StringTools;
 
