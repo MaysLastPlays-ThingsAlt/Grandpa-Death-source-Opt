@@ -78,8 +78,8 @@
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
 
 	<!-- Always enable Null Object Reference check for crash dialog -->
-	<haxedef name="HXCPP_CHECK_POINTER" if="release" />
-	<haxedef name="HXCPP_STACK_LINE" if="release" />
+	<haxedef name="HXCPP_CHECK_POINTER" if="mobile || windows release" />
+	<haxedef name="HXCPP_STACK_LINE" if="mobile || windows release" />
 
 	<!-- _________________________________ Custom _______________________________ -->
 
