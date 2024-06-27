@@ -312,16 +312,10 @@ class OptionsMenuState extends MusicBeatState
 		if (controls.BACK)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			if (curCategory != 'main') {
-			#if mobile
-		  removeVirtualPad();
-		  addVirtualPad(UP_DOWN, A_B_C);
-		  addVirtualPadCamera(false);
-		  #end
+			if (curCategory != 'main')
 				loadSubgroup('main');
-		}	else {
+        else
 				Main.switchState(this, new MainMenuState());
-		}
 		}
 	}
 
@@ -567,11 +561,6 @@ class OptionsMenuState extends MusicBeatState
 	{
 		if (controls.ACCEPT)
 		{
-		  #if mobile
-		  removeVirtualPad();
-		  addVirtualPad(LEFT_FULL, A_B);
-		  addVirtualPadCamera(false);
-		  #end
 			FlxG.sound.play(Paths.sound('confirmMenu'));
 			lockedMovement = true;
 			FlxFlicker.flicker(activeSubgroup.members[curSelection], 0.5, 0.06 * 2, true, false, function(flick:FlxFlicker)
