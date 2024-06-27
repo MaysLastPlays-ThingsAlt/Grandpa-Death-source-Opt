@@ -160,7 +160,7 @@ class DialogueBox extends FlxSpriteGroup
 		add(alphabetText);
 
 		// skip text
-		skipText = new FlxText(100, 670, 1000, "PRESS SHIFT TO SKIP", 20);
+		skipText = new FlxText(100, 670, 1000, "PRESS BACK BUTTON TO SKIP", 20);
 		skipText.alignment = FlxTextAlign.CENTER;
 
 		skipText.borderStyle = FlxTextBorderStyle.OUTLINE;
