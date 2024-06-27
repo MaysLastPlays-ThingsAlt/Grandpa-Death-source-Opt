@@ -458,7 +458,7 @@ class PlayState extends MusicBeatState
 		add(strumLines);
 
    #if mobile
-   addMobileControls();
+   addMobileControls(false);
    mobileControls.visible = false;
    #end
 
