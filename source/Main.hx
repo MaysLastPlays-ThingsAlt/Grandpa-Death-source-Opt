@@ -17,13 +17,12 @@ import meta.data.dependency.Discord;
 import meta.data.dependency.FNFTransition;
 import meta.data.dependency.FNFUIState;
 import openfl.Assets;
+import openfl.utils.Assets as OpenFlAssets;
 import openfl.Lib;
 import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.events.UncaughtErrorEvent;
-import sys.FileSystem;
-import sys.io.File;
 import sys.io.Process;
 
 // Here we actually import the states and metadata, and just the metadata.
@@ -212,11 +211,6 @@ class Main extends Sprite
 
 		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error in the thread, i'll get to it asap";
 
-		if (!FileSystem.exists("crash/"))
-			FileSystem.createDirectory("crash/");
-
-		File.saveContent(path, errMsg + "\n");
-
 		Sys.println(errMsg);
 		Sys.println("Crash dump saved in " + Path.normalize(path));
 
@@ -226,7 +220,7 @@ class Main extends Sprite
 		crashDialoguePath += ".exe";
 		#end
 
-		if (FileSystem.exists(crashDialoguePath))
+		if (OpenFlAssets.exists(crashDialoguePath))
 		{
 			Sys.println("Found crash dialog: " + crashDialoguePath);
 			new Process(crashDialoguePath, [path]);
