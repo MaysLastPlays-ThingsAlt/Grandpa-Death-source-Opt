@@ -43,6 +43,7 @@
 	-->
 
 	<source path="source" />
+	<assets path="mobile" rename="assets/mobile" if="mobile" />
 	<assets path="assets" />
 	<assets path="assets/songs" />
 	<assets path="assets/music" preload="true" />
