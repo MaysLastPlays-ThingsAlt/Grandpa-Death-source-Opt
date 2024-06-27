@@ -747,8 +747,6 @@ class PlayState extends MusicBeatState
 					DialogueBox.voiceline.stop();
 					dialogueBox.closeDialog();
 				  }
-						
-			
 			  }
 			// the change I made was just so that it would only take accept inputs
 
