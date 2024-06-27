@@ -62,7 +62,7 @@ class CoolUtil
 	{
 		var libraryArray:Array<String> = [];
 
-		var unfilteredLibrary = Assets.list().filter(text -> text.contins('$subDir/$library'));
+		var unfilteredLibrary = Assets.list().filter(text -> text.contains('$subDir/$library'));
 
 		for (folder in unfilteredLibrary)
 		{
