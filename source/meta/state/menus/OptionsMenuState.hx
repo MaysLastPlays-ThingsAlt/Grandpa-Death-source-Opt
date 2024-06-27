@@ -135,6 +135,10 @@ class OptionsMenuState extends MusicBeatState
 		add(infoText);
 
 		loadSubgroup('main');
+	  #if mobile
+	  addVirtualPad(LEFT_FULL, A_B);
+	  addVirtualPadCamera(false);
+	  #end
 	}
 
 	private var currentAttachmentMap:Map<Alphabet, Dynamic>;
@@ -563,6 +567,7 @@ class OptionsMenuState extends MusicBeatState
 
 	public function openControlmenu()
 	{
+	  #if desktop
 		if (controls.ACCEPT)
 		{
 			FlxG.sound.play(Paths.sound('confirmMenu'));
@@ -573,6 +578,8 @@ class OptionsMenuState extends MusicBeatState
 				lockedMovement = false;
 			});
 		}
+		#else
+				openSubState(new mobile.MobileControlsSubState());
 	}
 
 	public function exitMenu()
