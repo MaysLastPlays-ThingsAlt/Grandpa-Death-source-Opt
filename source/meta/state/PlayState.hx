@@ -42,8 +42,6 @@ import openfl.filters.ShaderFilter;
 import openfl.media.Sound;
 import openfl.utils.Assets;
 import sys.FileStat;
-import sys.FileSystem;
-import sys.io.File;
 
 using StringTools;
 
@@ -1868,7 +1866,7 @@ class PlayState extends MusicBeatState
 					FlxTween.tween(camHUD,{alpha:0},0.8);
 				case 1544:
 					var midsongdialoguepath=Paths.json('behold-the-apocalypse/midsongdialogue');
-					dialogueBox = DialogueBox.createDialogue(sys.io.File.getContent(midsongdialoguepath));
+					dialogueBox = DialogueBox.createDialogue(Assets.getText(midsongdialoguepath));
 					trace(dialogueBox);
 					dialogueBox.cameras = [dialogueHUD];
 					DialogueBox.skipText.visible=false;
@@ -2238,7 +2236,7 @@ class PlayState extends MusicBeatState
 				cloaked.kill();
 				new FlxTimer().start(0.6,function(sdfjkmasdk:FlxTimer){
 					var letssing=Paths.json('reaper-rhythm/letssing');
-					dialogueBox = DialogueBox.createDialogue(sys.io.File.getContent(letssing));
+					dialogueBox = DialogueBox.createDialogue(Assets.getText(letssing));
 					trace(dialogueBox);
 					dialogueBox.cameras = [dialogueHUD];
 					dialogueBox.whenDaFinish = whatthesigma;
@@ -2347,9 +2345,9 @@ class PlayState extends MusicBeatState
 		camHUD.alpha=0;
 		for (h in strumHUD){h.alpha=0;}
 
-		if (sys.FileSystem.exists(dialogPath)){
+		if (Assets.exists(dialogPath)){
 			startedCountdown = false;
-			dialogueBox = DialogueBox.createDialogue(sys.io.File.getContent(dialogPath));
+			dialogueBox = DialogueBox.createDialogue(Assets.getText(dialogPath));
 			dialogueBox.cameras = [dialogueHUD];
 			dialogueHUD.alpha=0;
 			dialogueBox.whenDaFinish = songIntroCutscene;
