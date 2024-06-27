@@ -42,6 +42,8 @@ class MainMenuState extends MusicBeatState
 	// the create 'state'
 	override function create()
 	{
+	 Paths.clearUnusedMemory();
+	 Paths.clearStoredMemory();
 		super.create();
 
 		// set the transitions to the previously set ones
