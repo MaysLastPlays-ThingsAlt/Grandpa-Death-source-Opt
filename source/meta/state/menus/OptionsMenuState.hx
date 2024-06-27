@@ -136,7 +136,7 @@ class OptionsMenuState extends MusicBeatState
 
 		loadSubgroup('main');
 	  #if mobile
-	  addVirtualPad(LEFT_FULL, A_B);
+	  addVirtualPad(LEFT_FULL, A_B_C);
 	  addVirtualPadCamera(false);
 	  #end
 	}
