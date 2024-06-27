@@ -743,9 +743,9 @@ class PlayState extends MusicBeatState
 					aspdojojdfsapjfds=true;
 					trace("121212231");
 				}
-				if(#if desktop FlxG.keys.justPressed.SHIFT #else justTouched #end && DialogueBox.voiceline!=null&&SONG.song.toLowerCase()!="reaper-rhythm"&&SONG.song.toLowerCase()!="deadbattle"){
+				if(#if desktop FlxG.keys.justPressed.SHIFT #else FlxG.android.justReleased.BACK #end && DialogueBox.voiceline!=null&&SONG.song.toLowerCase()!="reaper-rhythm"&&SONG.song.toLowerCase()!="deadbattle"){
 					DialogueBox.voiceline.stop();
-					dialogueBox.closeDialog();
+					DialogueBox.closeDialog();
 				  }
 						
 			
