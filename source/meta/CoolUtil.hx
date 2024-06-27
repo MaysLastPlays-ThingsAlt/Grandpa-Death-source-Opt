@@ -5,7 +5,6 @@ import meta.state.PlayState;
 import flixel.util.FlxColor;
 import openfl.display.BitmapData;
 import openfl.utils.Assets;
-import sys.FileSystem;
 
 using StringTools;
 
@@ -63,11 +62,11 @@ class CoolUtil
 	{
 		var libraryArray:Array<String> = [];
 
-    var unfilteredLibrary = FileSystem.readDirectory(Generic.returnPath() + '$subDir/$library');
+		var unfilteredLibrary = Assets.list().filter(image -> image.contains('$subDir/$library'));
 
 		for (folder in unfilteredLibrary)
 		{
-			if (!folder.contains('.'))
+			if (!folder.startsWith('.'))
 				libraryArray.push(folder);
 		}
 		trace(libraryArray);
