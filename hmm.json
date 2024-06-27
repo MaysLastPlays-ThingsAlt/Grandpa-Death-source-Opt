@@ -3,17 +3,17 @@
       {
          "name": "lime",
          "type": "haxelib",
-         "version": null
+         "version": "7.9.0"
       },
       {
          "name": "flixel",
          "type": "haxelib",
-         "version": null
+         "version": "4.11.0"
       },
       {
          "name": "flixel-addons",
          "type": "haxelib",
-         "version": null
+         "version": "2.11.0"
       },
       {
          "name": "flixel-ui",
@@ -23,12 +23,12 @@
       {
          "name": "openfl",
          "type": "haxelib",
-         "version": null
+         "version": "9.1.0"
       },
       {
          "name": "hxcpp",
          "type": "haxelib",
-         "version": null
+         "version": "4.2.1"
       },
       {
          "name": "hscript",
@@ -39,13 +39,6 @@
          "name": "hxcpp-debug-server",
          "type": "haxelib",
          "version": null
-      },
-      {
-         "name": "discord_rpc",
-         "type": "git",
-         "dir": null,
-         "ref": "master",
-         "url": "https://github.com/Aidan63/linc_discord-rpc"
       }
    ]
 }
