@@ -581,6 +581,7 @@ class OptionsMenuState extends MusicBeatState
 		#else
 		removeVirtualPad();
 				openSubState(new mobile.MobileControlsSubState());
+				#end
 	}
 
 	public function exitMenu()
