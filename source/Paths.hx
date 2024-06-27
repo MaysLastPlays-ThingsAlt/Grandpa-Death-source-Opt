@@ -14,8 +14,6 @@ import openfl.media.Sound;
 import openfl.system.System;
 import openfl.utils.AssetType;
 import openfl.utils.Assets as OpenFlAssets;
-import sys.FileSystem;
-import sys.io.File;
 
 class Paths
 {
@@ -155,7 +153,7 @@ class Paths
 			}
 			else
 			{
-				if (FileSystem.exists(path))
+				if (OpenFlAssets.exists(path))
 				{
 					if (!currentTrackedAssets.exists(key))
 					{
@@ -284,7 +282,7 @@ class Paths
 	inline static function getPreloadPath(file:String)
 	{
 		var returnPath:String = 'assets/$file';
-		if (!FileSystem.exists(returnPath))
+		if (!OpenFlAssets.exists(returnPath))
 			returnPath = CoolUtil.swapSpaceDash(returnPath);
 		return returnPath;
 	}
@@ -359,7 +357,7 @@ class Paths
 		var hasVocals:Bool = false;
 		song = 'assets/songs/${CoolUtil.spaceToDash(song.toLowerCase())}/opp.ogg';
 		trace("checking " + song + " for split vocals");
-		hasVocals = FileSystem.exists(song);
+		hasVocals = OpenFlAssets.exists(song);
 		if (hasVocals)
 			trace(song + " has split vocals");
 		else
@@ -380,7 +378,7 @@ class Paths
 	{
 		var songKey:String = 'assets/songs/${CoolUtil.spaceToDash(song.toLowerCase())}/InstSick.ogg'; //not a good way to check but it'll do for now
 		trace("checking " + songKey + " for multi-insts");
-		var hasMultiInsts = FileSystem.exists(songKey);
+		var hasMultiInsts = OpenFlAssets.exists(songKey);
 		if (hasMultiInsts)
 			trace(songKey + " has multiple insts");
 		else
@@ -419,7 +417,7 @@ class Paths
 	inline static public function getSparrowAtlas(key:String, ?library:String)
 	{
 		var graphic:FlxGraphic = returnGraphic(key, library);
-		return (FlxAtlasFrames.fromSparrow(graphic, File.getContent(file('images/$key.xml', library))));
+		return (FlxAtlasFrames.fromSparrow(graphic, OpenFlAssets.getText(file('images/$key.xml', library))));
 	}
 
 	inline static public function getPackerAtlas(key:String, ?library:String)
