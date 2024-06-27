@@ -1721,6 +1721,10 @@ class PlayState extends MusicBeatState
 	{
 		startingSong = false;
 
+	  #if mobile
+	  mobileControls.visible = true;
+	  #end
+
 		trace(SONG.song.toLowerCase());
 		
 		if(SONG.song.toLowerCase()=='reaper-rhythm'){
@@ -2429,10 +2433,6 @@ class PlayState extends MusicBeatState
 		inCutscene = false;
 		Conductor.songPosition = -(Conductor.crochet * 5);
 		swagCounter = 0;
-
-	  #if mobile
-	  mobileControls.visible = true;
-	  #end
 
 		if(camHUD!=null){//??? that never happens
 			for (h in strumHUD){
