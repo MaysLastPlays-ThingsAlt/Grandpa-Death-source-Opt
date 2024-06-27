@@ -154,6 +154,10 @@ class FreeplayState extends MusicBeatState
 		selector.size = 40;
 		selector.text = ">";
 		// add(selector);
+	
+	#if mobile
+	addVirtualPad(UP_DOWN, A_B);
+	addVirtualPadCamera(false);
 	}
 
 	public function addSong(songName:String, weekNum:Int, songCharacter:String, songColor:FlxColor)
