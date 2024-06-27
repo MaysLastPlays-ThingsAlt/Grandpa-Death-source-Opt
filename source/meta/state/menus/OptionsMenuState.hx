@@ -252,6 +252,11 @@ class OptionsMenuState extends MusicBeatState
 	{
 		super.update(elapsed);
 
+    if (virtualPad.buttonC.justPressed) {
+    removeVirtualPad();
+		openSubState(new mobile.MobileControlsSubState());
+    }
+
 		// just uses my outdated code for the main menu state where I wanted to implement
 		// hold scrolling but I couldnt because I'm dumb and lazy
 		if (!lockedMovement)
@@ -567,7 +572,6 @@ class OptionsMenuState extends MusicBeatState
 
 	public function openControlmenu()
 	{
-	  #if desktop
 		if (controls.ACCEPT)
 		{
 			FlxG.sound.play(Paths.sound('confirmMenu'));
@@ -578,10 +582,6 @@ class OptionsMenuState extends MusicBeatState
 				lockedMovement = false;
 			});
 		}
-		#else
-		removeVirtualPad();
-				openSubState(new mobile.MobileControlsSubState());
-				#end
 	}
 
 	public function exitMenu()
