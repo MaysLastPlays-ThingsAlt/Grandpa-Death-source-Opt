@@ -59,6 +59,8 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
+	 Paths.clearUnusedMemory();
+	 Paths.clearStoredMemory();
 		super.create();
 
 		mutex = new Mutex();
