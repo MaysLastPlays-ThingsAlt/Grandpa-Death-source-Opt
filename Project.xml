@@ -15,7 +15,7 @@
 	<!-- ____________________________ Window Settings ___________________________ -->
 
 	<!--These window settings apply to all targets-->
-	<window width="1280" height="720" fps="" background="#000000" hardware="true" vsync="false" />
+	<window width="1280" height="720" fps="60" background="#000000" hardware="true" vsync="false" />
 
 	<!--HTML5-specific-->
 	<window if="html5" resizable="true" />
@@ -28,7 +28,7 @@
 
 	<!-- _____________________________ Custom Defines ____________________________ -->
 
-	<define name="DISCORD_RPC" if="desktop" unless="web || neko" />
+	<define name="DISCORD_RPC" if="desktop" unless="web || neko || mobile" />
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
@@ -70,9 +70,6 @@
 
 	<!--Disable the Flixel core debugger. Automatically gets set whenever you compile in release mode!-->
 	<haxedef name="FLX_NO_DEBUG" unless="debug" />
-
-	<!-- Make's the game use less ram -->
-	<haxedef name="HXCPP_GC_BIG_BLOCKS" />
 
 	<!--argh... hate this faggot that keeps appearing in my console log...-->
 	<haxedef name="no-deprecation-warnings"/>
