@@ -54,7 +54,6 @@ class OptionsMenuState extends MusicBeatState
 				[
 					['preferences', callNewGroup],
 					['appearance', callNewGroup],
-					['controls', openControlmenu],
 					['exit', exitMenu]
 				]
 			],
