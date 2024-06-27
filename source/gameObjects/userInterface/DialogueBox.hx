@@ -528,6 +528,17 @@ class DialogueBox extends FlxSpriteGroup
 
 	override function update(elapsed:Float)
 	{
+
+		#if mobile
+	 var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
+		for (touch in FlxG.touches.list)
+		{
+			if (touch.justPressed)
+			{
+				pressedEnter = true;
+			}
+		}
+		#end
 		portrait.animation.paused = alphabetText.finishedLine;
 		if (portrait.animation.paused)
 			portrait.animation.finish();
@@ -536,7 +547,7 @@ class DialogueBox extends FlxSpriteGroup
 		if (bgFade.alpha > 0.3)
 			bgFade.alpha = 0.3;
 
-		if (FlxG.keys.justPressed.ENTER) 
+		if (pressedEnter) 
 			{
 				if(voiceline!=null){voiceline.stop();}
 			}
