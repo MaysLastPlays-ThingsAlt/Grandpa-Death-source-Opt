@@ -1721,9 +1721,6 @@ class PlayState extends MusicBeatState
 
 	function startSong():Void
 	{
-	  #if mobile
-	  mobileControls.visible = true;
-	  #end
 		startingSong = false;
 
 		trace(SONG.song.toLowerCase());
@@ -2434,6 +2431,10 @@ class PlayState extends MusicBeatState
 		inCutscene = false;
 		Conductor.songPosition = -(Conductor.crochet * 5);
 		swagCounter = 0;
+
+	  #if mobile
+	  mobileControls.visible = true;
+	  #end
 
 		if(camHUD!=null){//??? that never happens
 			for (h in strumHUD){
