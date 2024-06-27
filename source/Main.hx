@@ -89,6 +89,11 @@ class Main extends Sprite
 	{
 		super();
 
+    #if mobile
+    Generic.initCrashHandler();
+    Generic.mode = ROOTDATA;
+    #end
+
 		/**
 			ok so, haxe html5 CANNOT do 120 fps. it just cannot.
 			so here i just set the framerate to 60 if its complied in html5.
