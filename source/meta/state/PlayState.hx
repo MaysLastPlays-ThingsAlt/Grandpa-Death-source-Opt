@@ -2205,7 +2205,8 @@ class PlayState extends MusicBeatState
 	}
 
 	public function whatthesigma(){
-		songDialogue?.stop();
+	  if (songDialogue != null)
+		songDialogue.stop();
 		songDialogue=null;
 		FlxTween.tween(camHUD,{alpha:1},1);
 		for (h in strumHUD){
@@ -2217,7 +2218,8 @@ class PlayState extends MusicBeatState
 	public function cloakreveal(){
 		dialogueBox.alphabetText.playSounds=false;
 		dialogueBox.kill();
-		DialogueBox.voiceline?.stop();
+		if (DialogueBox.voiceline != null)
+		DialogueBox.voiceline.stop();
 		camFollow.y-=80;
 
 		if(cloaked!=null){
@@ -2252,7 +2254,8 @@ class PlayState extends MusicBeatState
 
 	public function songIntroCutscene()
 	{
-		songDialogue?.stop();
+	  if (songDialogue != null)
+		songDialogue.stop();
 		songDialogue=null;
 		switch (curSong.toLowerCase())
 		{
