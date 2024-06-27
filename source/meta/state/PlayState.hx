@@ -745,7 +745,7 @@ class PlayState extends MusicBeatState
 				}
 				if(#if desktop FlxG.keys.justPressed.SHIFT #else FlxG.android.justReleased.BACK #end && DialogueBox.voiceline!=null&&SONG.song.toLowerCase()!="reaper-rhythm"&&SONG.song.toLowerCase()!="deadbattle"){
 					DialogueBox.voiceline.stop();
-					DialogueBox.closeDialog();
+					dialogueBox.closeDialog();
 				  }
 						
 			
