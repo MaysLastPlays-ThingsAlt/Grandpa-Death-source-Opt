@@ -127,7 +127,7 @@ class Main extends Sprite
 		#if desktop
 		gameCreate = new FlxGame(gameWidth, gameHeight, mainClassState, #if (flixel < "5.0.0") zoom, #end framerate, framerate, skipSplash);
 			        #else
-  	   gameCreate = new FlxGame(1280, 720, Init, 60, 60, false, true);
+  	   gameCreate = new FlxGame(1280, 720, Init, 60, 60, true, false);
   	        #end
 		addChild(gameCreate); // and create it afterwards
 
