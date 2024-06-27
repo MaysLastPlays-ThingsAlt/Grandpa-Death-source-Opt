@@ -457,6 +457,11 @@ class PlayState extends MusicBeatState
 		}
 		add(strumLines);
 
+   #if mobile
+   addMobileControls();
+   mobileControls.visible = false;
+   #end
+
 		uiHUD = new ClassHUD();
 		add(uiHUD);
 		uiHUD.cameras = [camHUD];
@@ -779,7 +784,7 @@ class PlayState extends MusicBeatState
 		if (!inCutscene)
 		{
 			// pause the game if the game is allowed to pause and enter is pressed
-			if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
+			if (FlxG.keys.justPressed.ENTER  #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause)
 			{
 				pauseGame();
 			}
@@ -1716,6 +1721,9 @@ class PlayState extends MusicBeatState
 
 	function startSong():Void
 	{
+	  #if mobile
+	  mobileControls.visible = true;
+	  #end
 		startingSong = false;
 
 		trace(SONG.song.toLowerCase());
@@ -2111,6 +2119,9 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
+	  #if mobile
+	  mobileControls.visible = false;
+	  #end
 		canPause = false;
 		songMusic.volume = 0;
 		vocals.volume = 0;
