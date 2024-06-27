@@ -312,15 +312,16 @@ class OptionsMenuState extends MusicBeatState
 		if (controls.BACK)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			if (curCategory != 'main')
+			if (curCategory != 'main') {
 			#if mobile
 		  removeVirtualPad();
 		  addVirtualPad(UP_DOWN, A_B_C);
 		  addVirtualPadCamera(false);
 		  #end
 				loadSubgroup('main');
-			else
+		}	else {
 				Main.switchState(this, new MainMenuState());
+		}
 		}
 	}
 
