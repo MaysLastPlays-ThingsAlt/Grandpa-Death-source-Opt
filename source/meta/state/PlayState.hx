@@ -457,11 +457,6 @@ class PlayState extends MusicBeatState
 		}
 		add(strumLines);
 
-   #if mobile
-   addMobileControls(false);
-   mobileControls.visible = false;
-   #end
-
 		uiHUD = new ClassHUD();
 		add(uiHUD);
 		uiHUD.cameras = [camHUD];
@@ -512,6 +507,11 @@ class PlayState extends MusicBeatState
 			FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 			FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		}
+
+   #if mobile
+   addMobileControls(false);
+   mobileControls.visible = false;
+   #end
 
 		Paths.clearUnusedMemory();
 
