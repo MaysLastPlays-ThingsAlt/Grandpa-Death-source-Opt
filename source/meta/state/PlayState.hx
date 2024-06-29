@@ -120,7 +120,7 @@ class PlayState extends MusicBeatState
 
 	public static var camHUD:FlxCamera;
 	public static var camGame:FlxCamera;
-//	public static var vignetteHUD:FlxCamera;
+	public static var vignetteHUD:FlxCamera;
 	public static var dialogueHUD:FlxCamera;
 	public static var lyrics:FlxCamera;
 	public var camDisplaceX:Float = 0;
@@ -196,7 +196,7 @@ class PlayState extends MusicBeatState
 
 	public var snap:Bool=true;
 
-	/*public var vignetteh:FlxSprite;*/public var vignette:FlxSprite;
+	public var vignetteh:FlxSprite;public var vignette:FlxSprite;
 
 	function resetStatics()
 	{
@@ -481,18 +481,18 @@ class PlayState extends MusicBeatState
 
 		*/
 
-		/*vignetteHUD = new FlxCamera();
+		vignetteHUD = new FlxCamera();
 		vignetteHUD.bgColor.alpha = 0;
-		FlxG.cameras.add(vignetteHUD, false);*/
+		FlxG.cameras.add(vignetteHUD, false);
 		dialogueHUD = new FlxCamera();
 		dialogueHUD.bgColor.alpha = 0;
 		FlxG.cameras.add(dialogueHUD, false);
 
-		/*vignetteh = new FlxSprite().loadGraphic(Paths.image("backgrounds/hell/vignette"));
+		vignetteh = new FlxSprite().loadGraphic(Paths.image("backgrounds/hell/vignette"));
 		vignetteh.screenCenter();
 		vignetteh.cameras = [vignetteHUD];
 		vignetteh.alpha = 0.5;
-		add(vignetteh);*/
+		add(vignetteh);
 
 		//
 		keysArray = [
@@ -2249,7 +2249,7 @@ class PlayState extends MusicBeatState
 				FlxTween.tween(h,{alpha:0},0.5);
 			}
 			tweenCam(0.85,0.2);
-			FlxTween.tween(vignette,{alpha:0.8},0.4);
+			FlxTween.tween(vignetteh,{alpha:0.8},0.4);
 			cloaked.alpha=1;
 			cloaked.animation.play('idle',false);
 			FlxG.sound.play(Paths.sound('cape'),5);
@@ -2440,7 +2440,7 @@ class PlayState extends MusicBeatState
 			}
 			FlxTween.tween(camHUD,{alpha:1},1,{ease:FlxEase.quadIn});
 		}
-		if(vignette!=null){FlxTween.tween(vignette,{alpha:0},0.6,{ease:FlxEase.quadOut,onComplete:function(gffsgdg:FlxTween){vignette.alpha=0;}});}
+		if(vignetteh!=null){FlxTween.tween(vignetteh,{alpha:0},0.6,{ease:FlxEase.quadOut,onComplete:function(gffsgdg:FlxTween){vignetteh.alpha=0;}});}
 		if(SONG.song.toLowerCase()=='behold the apocalypse'){
 			tweenCam(0.7,1);
 		}else{
