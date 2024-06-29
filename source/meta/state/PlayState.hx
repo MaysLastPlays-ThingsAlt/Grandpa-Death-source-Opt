@@ -457,11 +457,6 @@ class PlayState extends MusicBeatState
 		}
 		add(strumLines);
 
-   #if mobile
-   addMobileControls(false);
-   mobileControls.visible = true;
-   #end
-
 		uiHUD = new ClassHUD();
 		add(uiHUD);
 		uiHUD.cameras = [camHUD];
@@ -512,6 +507,11 @@ class PlayState extends MusicBeatState
 			FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 			FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		}
+
+   #if mobile
+   addMobileControls(false);
+   mobileControls.visible = false;
+   #end
 
 		Paths.clearUnusedMemory();
 
@@ -1721,9 +1721,9 @@ class PlayState extends MusicBeatState
 	{
 		startingSong = false;
 
-	  /*#if mobile
+	  #if mobile
 	  mobileControls.visible = true;
-	  #end*/
+	  #end
 
 		trace(SONG.song.toLowerCase());
 		
@@ -2118,9 +2118,9 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
-	  /*#if mobile
+	  #if mobile
 	  mobileControls.visible = false;
-	  #end*/
+	  #end
 		canPause = false;
 		songMusic.volume = 0;
 		vocals.volume = 0;
