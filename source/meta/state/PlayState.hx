@@ -459,7 +459,7 @@ class PlayState extends MusicBeatState
 
    #if mobile
    addMobileControls(false);
-   mobileControls.visible = false;
+   mobileControls.visible = true;
    #end
 
 		uiHUD = new ClassHUD();
@@ -1721,9 +1721,9 @@ class PlayState extends MusicBeatState
 	{
 		startingSong = false;
 
-	  #if mobile
+	  /*#if mobile
 	  mobileControls.visible = true;
-	  #end
+	  #end*/
 
 		trace(SONG.song.toLowerCase());
 		
@@ -2118,9 +2118,9 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
-	  #if mobile
+	  /*#if mobile
 	  mobileControls.visible = false;
-	  #end
+	  #end*/
 		canPause = false;
 		songMusic.volume = 0;
 		vocals.volume = 0;
